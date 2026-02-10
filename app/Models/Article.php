@@ -18,7 +18,7 @@ class Article extends Model
         'content',
         'price',
         'user_id',
-        'image_path',
+        'image',
     ];
 
     public function user()
