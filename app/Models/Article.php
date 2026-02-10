@@ -14,11 +14,12 @@ class Article extends Model
      * @var list<string>
      */
     protected $fillable = [
+        'id',
         'name',
         'content',
         'price',
         'user_id',
-        'image',
+        'image_path',
     ];
 
     public function user()

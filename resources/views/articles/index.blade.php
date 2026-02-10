@@ -18,7 +18,8 @@
         <div class="article">
             <h2>{{ $article->name }}</h2>
             <p>{{ Str::limit($article->content, 150) }}</p>
-            <img src={{ $article->image_path }} alt="image inshallah">
+            <img src="{{ $article->image_path }}" alt="image inshallah">
+            <p>{{ $article->price }}</p>
             <a href="/articles/{{ $article->id }}">Read More</a>
         </div>
     @empty

@@ -3,16 +3,29 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 
 class ArticleSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+  public function run():void
     {
-        Article::factory(10)->create();
+
+        $response = Http::withoutVerifying()->get("https://dummyjson.com/products/category/laptops");
+        $data = $response -> json();
+        
+        foreach ($data['products'] as $item) {
+        Article::create([
+
+            'id' => $item['id'],
+            "name"=> $item["title"],
+            'content'=> $item['description'],
+            'price'=> $item['price'],
+            'image_path'=> $item['thumbnail'],
+            'user_id' =>1
+            
+            ]);
+        }
     }
 }
