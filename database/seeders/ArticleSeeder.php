@@ -18,7 +18,6 @@ class ArticleSeeder extends Seeder
         foreach ($data['products'] as $item) {
         Article::create([
 
-            'id' => $item['id'],
             "name"=> $item["title"],
             'content'=> $item['description'],
             'price'=> $item['price'],

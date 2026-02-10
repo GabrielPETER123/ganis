@@ -25,7 +25,6 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->faker->uuid,
             'name' => fake()->name(),
             'content' => fake()->text(),
             'price' => fake()->randomFloat(2, 1, 1000),
