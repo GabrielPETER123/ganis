@@ -16,20 +16,18 @@ class ArticleFactory extends Factory
      * @return array<string, mixed>
      */
 
-
-    public function makeProducts(): string
-    {
-        $categories = ['laptop', 'shoes'];
-        return $this->faker->randomElement($categories);
-    }
     public function definition(): array
     {
+        $categories = ['laptops', 'smartphones', 'mens-watches', 'motorcycles'];
+        $category = $categories[array_rand($categories)];
+        
         return [
-            'name' => fake()->name(),
-            'content' => fake()->text(),
-            'price' => fake()->randomFloat(2, 1, 1000),
+            'name' => fake()->words(3, true),
+            'content' => fake()->paragraph(),
+            'category' => $category,
+            'price' => fake()->numberBetween(100, 5000),
+            'image_path' => fake()->imageUrl(),
             'user_id' => 1,
-            'image_path' => "https://loremflickr.com/100/100/{$this->makeProducts()}"
         ];
     }
 }

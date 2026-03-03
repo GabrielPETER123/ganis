@@ -15,6 +15,6 @@ class Stock extends Model
      */
     protected $fillable = [
         'article_id',
-        'in_stock',
+        'number_in_stock',
     ];
 }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('content');
+            $table->text('category');
             $table->float('price');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('image_path')->nullable();
